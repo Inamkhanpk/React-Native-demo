@@ -36,35 +36,7 @@ useEffect(()=>{
 },[pic])
 
 
-// const opencamera = () =>{
-//   launchImageLibrary(options, (response) => {
-//     // console.log('Response = ', response.assets[0].uri);
-//     // if (response.didCancel) {
-//     //   console.log('User cancelled image picker');
-//     // }
-//     // else if (response.error) {
-//     //   console.log('ImagePicker Error: ', response.error);
-//     // }
-//     // else if (response.customButton) {
-//     //   console.log('User tapped custom button: ', response.customButton);
-//     // }
-//     // else {
-//       const uri = response.assets[0].uri;
 
-//      setImageUri(uri)
-//      let reference = storage().ref("/images");         // 2
-// let task = reference.putFile(uri);               // 3
-
-// task.then(() => {                                 // 4
-//     console.log('Image uploaded to the bucket!');
-//     setPic(true)
-// }).catch((e) => console.log('uploading image error => ', e));
-
-//    // }
-   
-//   });
-
-// }
 
     const open_picker = () => {
 
@@ -83,22 +55,7 @@ useEffect(()=>{
    }).catch((e) => console.log('uploading image error => ', e));
       });
 
-    //   launchImageLibrary(options, (response) => {
-      
-    //       const uri = response.assets[0].uri;
-  
-    //      setImageUri(uri)
-    //      let reference = storage().ref("/images");         // 2
-    // let task = reference.putFile(uri);               // 3
-
-    // task.then(() => {                                 // 4
-    //     console.log('Image uploaded to the bucket!');
-    //     setPic(true)
-    // }).catch((e) => console.log('uploading image error => ', e));
     
-    //    // }
-       
-    //   });
 
  
     

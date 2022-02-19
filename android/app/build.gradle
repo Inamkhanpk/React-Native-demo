@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-apply plugin: 'com.google.gms.google-services'
+
 
 import com.android.build.OutputFile
 
@@ -140,6 +140,7 @@ android {
         versionCode 1
         versionName "1.0"
         missingDimensionStrategy 'react-native-camera', 'general'
+        //multiDexEnabled true
     }
     splits {
         abi {
@@ -204,10 +205,15 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
+    implementation 'com.google.firebase:firebase-analytics:17.3.0'
     implementation "com.facebook.react:react-native:+"  // From node_modules
      implementation project(':react-native-push-notification')
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation project(':react-native-config')
+      implementation project(':react-native-google-places')
    compile project(':react-native-vector-icons')
+ 
+ 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }
@@ -242,3 +248,5 @@ project.ext.vectoricons = [
     iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf','FontAwesome.tff' ] // Name of the font files you want to copy
 ]
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+apply plugin: 'com.google.gms.google-services'
+  apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle" // add this

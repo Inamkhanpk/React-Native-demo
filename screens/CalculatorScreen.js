@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 import { View, TextInput, Button, StyleSheet, Text } from 'react-native';
-
+//import Geocoder from 'react-native-geocoding';
 import { Picker } from '@react-native-picker/picker';
 import { isEmpty } from "validator";
-;
+//import RangeSlider from 'rn-range-slider';
+//import MapView from 'react-native-maps';
 
 function CalculatorScreen() {
   const [pickerValue, setPickerValue] = useState('')
   const [result, setResult] = useState("")
   const [state, setState] = useState({
     number1: '',
-    number2: ''
+    number2: '',
+    
   })
+  // const [low,setLow] = useState('')
+  // const [high,setHigh] = useState('')
   const [errors, setErrors] = useState({
 
     number1: '',
@@ -123,6 +127,16 @@ function CalculatorScreen() {
 
   }
 
+  // const renderThumb = useCallback(() => <Thumb/>, []);
+  // const renderRail = useCallback(() => <Rail/>, []);
+  // const renderRailSelected = useCallback(() => <RailSelected/>, []);
+  // const renderLabel = useCallback(value => <Label text={value}/>, []);
+  // const renderNotch = useCallback(() => <Notch/>, []);
+  // const handleValueChange = useCallback((low, high) => {
+  //   setLow(low);
+  //   setHigh(high);
+  // }, []);
+  //Geocoder.init("AIzaSyBgrty9rA8YwTBX3dUZaEzslpx3LcGlNTY");
 
   return (
     <View style={styles.container}>
@@ -134,6 +148,22 @@ function CalculatorScreen() {
           value={state.number1}
           placeholder="Number 1"
         />
+
+{/* <RangeSlider
+    style={styles.slider}
+    min={0}
+    max={100}
+    step={1}
+    floatingLabel
+    renderThumb={renderThumb}
+    renderRail={renderRail}
+    renderRailSelected={renderRailSelected}
+    renderLabel={renderLabel}
+    renderNotch={renderNotch}
+    low={low}
+    high={high}
+    onValueChanged={handleValueChange}
+  /> */}
         <Text style={styles.errors}>{errors.number1 ? errors.number1 : null}</Text>
 
         <TextInput
@@ -164,6 +194,21 @@ function CalculatorScreen() {
       <View >
         <Text style={{ textAlign: 'center', fontWeight: 'bold' }}>Answer :{result ? result : null}</Text>
       </View>
+
+      {/* <MapView
+    initialRegion={{
+      latitude: 37.78825,
+      longitude: -122.4324,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    }}
+  /> */}
+      {/* {Geocoder.from("Colosseum")
+		.then(json => {
+		//	var location = json.results[0].geometry.location;
+			console.log(json);
+		})
+		.catch(error => console.warn(error))} */}
     </View>
   );
 }
